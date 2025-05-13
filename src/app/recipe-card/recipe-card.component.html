@@ -1,0 +1,9 @@
+<div class="card">
+  <h2>{{ recipe.title }}</h2>
+  <app-ingredients-list [ingredients]="recipe.ingredients"></app-ingredients-list>
+  <p>{{ recipe.steps }}</p>
+  <button (click)="toggleFavorite.emit()">
+    {{ recipe.favorite ? '★ Kedvenc' : '☆ Kedvenc' }}
+  </button>
+</div>
+
