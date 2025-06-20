@@ -7,5 +7,13 @@
   </button>
 <button (click)="delete.emit()" style="color: rgb(221, 86, 86)">
   Törlés</button>
+
+  <app-collection 
+  [recipeCollections]="recipe.collections"
+  [collections] = "collections"
+  (collectionToggled)="collectionToggled.emit($event)"
+  (collectionCreated) ="collectionCreated.emit($event)">
+  </app-collection>
+
 </div>
 

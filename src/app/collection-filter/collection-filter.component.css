@@ -1,0 +1,9 @@
+.collection-filter button {
+      margin: 2px;
+      padding: 4px 8px;
+      cursor: pointer;
+    }
+    .selected {
+      font-weight: bold;
+      text-decoration: underline;
+    }
