@@ -5,5 +5,7 @@
   <button (click)="toggleFavorite.emit()">
     {{ recipe.favorite ? '★ Kedvenc' : '☆ Kedvenc' }}
   </button>
+<button (click)="delete.emit()" style="color: rgb(221, 86, 86)">
+  Törlés</button>
 </div>
 

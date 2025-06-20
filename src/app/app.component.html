@@ -6,7 +6,8 @@
   <app-recipe-card
     *ngIf="!showFavoritesOnly || recipe.favorite"
     [recipe]="recipe"
-    (toggleFavorite)="toggleFavorite(recipe.id)">
+    (toggleFavorite)="toggleFavorite(recipe.id)"
+    (delete)="deleteRecipe(recipe.id)">
   </app-recipe-card>
 </div>
 </main>
