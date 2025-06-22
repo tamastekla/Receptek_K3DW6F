@@ -9,6 +9,11 @@
     (select)="setSelectedCollection($event)">
   </app-collection-filter>
 
+  <app-collection
+    [collections]="collections"
+    (collectionCreated)="createCollection($event)">
+  </app-collection>
+
   
   <div *ngFor="let recipe of recipes">
     <div *ngIf="(!showFavoritesOnly || recipe.favorite) &&
@@ -18,8 +23,7 @@
         [collections]="collections"
         (toggleFavorite)="toggleFavorite(recipe.id)"
         (delete)="deleteRecipe(recipe.id)"
-        (collectionToggled)="toggleCollection(recipe.id, $event)"
-        (collectionCreated)="createCollection($event)">
+        (collectionToggled)="toggleCollection(recipe.id, $event)">
       </app-recipe-card>
     </div>
   </div>

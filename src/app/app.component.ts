@@ -6,6 +6,7 @@ import { FavoritesFilterComponent } from './favorites-filter/favorites-filter.co
 import { NewRecipeFormComponent } from './new-recipe-form/new-recipe-form.component';
 import { RecipeCardComponent } from './recipe-card/recipe-card.component';
 import { CollectionFilterComponent } from './collection-filter/collection-filter.component'; //fsc
+import { CollectionComponent } from './collection/collection.component';
 
 
 interface Recipe {
@@ -26,7 +27,8 @@ interface Recipe {
     FavoritesFilterComponent,
     NewRecipeFormComponent,
     RecipeCardComponent,
-    CollectionFilterComponent //fsc
+    CollectionFilterComponent,
+    CollectionComponent //fsc
   ],
   templateUrl: './app.component.html'
 })

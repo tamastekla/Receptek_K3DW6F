@@ -1,11 +1,14 @@
-<div>
-    <label>Gyűjtemények:</label>
-    <input [(ngModel)]="newCollection" placeholder="Új gyűjtemény" (keyup.enter)="addCollection()" />
-    <button (click)="addCollection()">Hozzáadás</button>
-    <div class="collection-tags">
-        <span *ngFor="let c of collections" (click)="toggleCollection(c)" 
-            [class.selected]="recipeCollections.includes(c)">
-            {{ c }}
-        </span>
-    </div>
+<div class="collection-container">
+  <div class="collection-list">
+    <span *ngFor="let collection of collections">
+      <button type="button" (click)="toggleCollection(collection)">
+        {{ collection }}
+      </button>
+    </span>
+  </div>
+
+  <div class="collection-form">
+    <input [(ngModel)]="newCollection" placeholder="Új gyűjtemény">
+    <button type="button" (click)="addCollection()">Hozzáadás</button>
+  </div>
 </div>
