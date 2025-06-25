@@ -1,13 +1,5 @@
-<div class="collection-container">
-  <div class="collection-list">
-    <span *ngFor="let collection of collections">
-      <button type="button" (click)="toggleCollection(collection)">
-        {{ collection }}
-      </button>
-    </span>
-  </div>
-
-  <div class="collection-form">
+<div>
+  <div>
     <input [(ngModel)]="newCollection" placeholder="Új gyűjtemény">
     <button type="button" (click)="addCollection()">Hozzáadás</button>
   </div>

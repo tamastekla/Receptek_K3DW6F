@@ -1,9 +1,6 @@
-<main class="main">
-  <app-favorites-filter [(showFavoritesOnly)]="showFavoritesOnly"></app-favorites-filter>
-  <app-new-recipe-form (recipeAdded)="addRecipe($event)"></app-new-recipe-form>
+<main>
 
-  
-  <app-collection-filter 
+   <app-collection-filter 
     [collections]="collections" 
     [selectedCollection]="selectedCollection"
     (select)="setSelectedCollection($event)">
@@ -14,7 +11,12 @@
     (collectionCreated)="createCollection($event)">
   </app-collection>
 
-  
+  <app-new-recipe-form 
+    *ngIf = "!selectedCollection"
+    (recipeAdded)="addRecipe($event)">
+  </app-new-recipe-form>
+
+
   <div *ngFor="let recipe of recipes">
     <div *ngIf="(!showFavoritesOnly || recipe.favorite) &&
                 (!selectedCollection || recipe.collections.includes(selectedCollection))">
@@ -27,5 +29,9 @@
       </app-recipe-card>
     </div>
   </div>
+
+  <app-favorites-filter 
+    [(showFavoritesOnly)]="showFavoritesOnly">
+  </app-favorites-filter>
 </main>
 

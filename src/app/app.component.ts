@@ -35,7 +35,7 @@ interface Recipe {
 export class AppComponent implements OnInit {
   recipes: Recipe[] = [];
   showFavoritesOnly = false;
-  collections:string[] =[]; //fc
+  collections:string[] =['Leves','Főétel','Desszert']; //fc
   selectedCollection: string | null = null; //fsc
 
   ngOnInit() {
@@ -83,10 +83,19 @@ export class AppComponent implements OnInit {
 }
 
 createCollection(name: string) {
-  if (!this.collections.includes(name)) {
-    this.collections.push(name);
+  const trimmed = name.trim();
+
+  // Avoid empty or duplicate (case-insensitive) entries
+  const alreadyExists = this.collections.some(
+    c => c.toLowerCase() === trimmed.toLowerCase()
+  );
+
+  if (trimmed && !alreadyExists) {
+    this.collections.push(trimmed);
+  } else {
+    alert('Már létezik ilyen nevű gyűjtemény!'); // Optional: show message
   }
-  } //fc
+}
 
 setSelectedCollection(name: string | null){ //fsc
   console.log('Selected collection:', name); //fsc
