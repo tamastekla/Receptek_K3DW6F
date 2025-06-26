@@ -1,10 +1,12 @@
 <div>
-      <strong>Gyűjtemények:</strong>
-      <button *ngIf="selectedCollection" (click)="select.emit(null)">Összes</button>
-      <button 
-        *ngFor="let collection of collections"
-        (click)="select.emit(collection)"
-        [class.selected]="collection === selectedCollection">
-        {{ collection }}
-      </button>
-    </div>
+  <strong>Gyűjtemények:</strong>
+  <div class="collection-buttons">
+    <button *ngIf="selectedCollection" (click)="select.emit(null)">Összes</button>
+    <button 
+      *ngFor="let collection of collections"
+      (click)="select.emit(collection)"
+      [class.selected]="collection === selectedCollection">
+      {{ collection }}
+    </button>
+  </div>
+</div>

@@ -1,14 +1,11 @@
 <div>
   <h2>{{ recipe.title }}</h2>
+  <div class="recipe-body">
   <app-ingredients-list [ingredients]="recipe.ingredients"></app-ingredients-list>
   <p>{{ recipe.steps }}</p>
+  </div>
 
-  <button (click)="toggleFavorite.emit()">
-    {{ recipe.favorite ? '★ Kedvenc' : '☆ Kedvenc' }}
-  </button>
-  <button (click)="delete.emit()" style="color: rgb(221, 86, 86)">
-    Törlés
-  </button>
+  
 
   <div>
     <span *ngFor="let collection of collections">
@@ -18,6 +15,15 @@
         (click)="collectionToggled.emit(collection)">
         {{ collection }}
       </button>
-    </span>
+    </span> 
   </div>
 </div>
+
+<div class = "actions">
+  <button class="favorites" (click)="toggleFavorite.emit()">
+    {{ recipe.favorite ? '★ Kedvenc' : '☆ Kedvenc' }}
+  </button>
+  <button class="delete" (click)="delete.emit()">
+    Törlés
+  </button>
+  </div>

@@ -15,7 +15,7 @@ interface Recipe {
   ingredients: string[];
   steps: string;
   favorite: boolean;
-  collections: string[]; //for collections:= fc
+  collections: string[]; 
 }
 
 @Component({
@@ -28,15 +28,16 @@ interface Recipe {
     NewRecipeFormComponent,
     RecipeCardComponent,
     CollectionFilterComponent,
-    CollectionComponent //fsc
+    CollectionComponent 
   ],
-  templateUrl: './app.component.html'
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
   recipes: Recipe[] = [];
   showFavoritesOnly = false;
-  collections:string[] =['Leves','Főétel','Desszert']; //fc
-  selectedCollection: string | null = null; //fsc
+  collections:string[] =['Leves','Főétel','Desszert']; 
+  selectedCollection: string | null = null; 
 
   ngOnInit() {
     const stored = localStorage.getItem('recipes');
@@ -49,7 +50,7 @@ export class AppComponent implements OnInit {
     recipe.id = Date.now();
     this.recipes.push(recipe);
     this.saveToLocalStorage();
-    recipe.collections = []; //fc
+    recipe.collections = []; 
   }
 
   toggleFavorite(id: number) {
@@ -69,7 +70,7 @@ export class AppComponent implements OnInit {
     this.saveToLocalStorage();
   }
 
-  toggleCollection(id: number, collection: string) { //fc
+  toggleCollection(id: number, collection: string) { 
     const recipe = this.recipes.find(r => r.id === id);
   if (!recipe) return;
 
@@ -85,7 +86,6 @@ export class AppComponent implements OnInit {
 createCollection(name: string) {
   const trimmed = name.trim();
 
-  // Avoid empty or duplicate (case-insensitive) entries
   const alreadyExists = this.collections.some(
     c => c.toLowerCase() === trimmed.toLowerCase()
   );
@@ -93,12 +93,12 @@ createCollection(name: string) {
   if (trimmed && !alreadyExists) {
     this.collections.push(trimmed);
   } else {
-    alert('Már létezik ilyen nevű gyűjtemény!'); // Optional: show message
+    alert('Már létezik ilyen nevű gyűjtemény!'); 
   }
 }
 
-setSelectedCollection(name: string | null){ //fsc
-  console.log('Selected collection:', name); //fsc
+setSelectedCollection(name: string | null){
+  console.log('Selected collection:', name); 
   this.selectedCollection = name;
 }
 

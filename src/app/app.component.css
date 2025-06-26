@@ -1,0 +1,39 @@
+.layout {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 2rem;
+  max-width: 1700px;
+  margin: 0 auto;
+  padding: 2rem;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.sidebar {
+  width: 260px;
+  background-color: #e6f2f4;
+  padding: 1rem;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  flex-shrink: 0;
+  color: #28527A;
+  border: 2px solid #28527A;
+}
+
+.recipes {
+  flex: 1;
+  min-width: 0;
+}
+
+
+.form-panel {
+  width: 300px;
+  background-color: #e6f2f4;
+  padding: 1rem;
+  border-radius: 8px;
+  flex-shrink: 0;
+  border: 2px solid #28527A;
+}
+

@@ -1,1 +1,37 @@
+div {
+  margin-bottom: 0.5rem;
+}
+
+strong {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.collection-buttons {
+  display: flex;
+  flex-wrap: wrap;         
+  gap: 0.4rem 0.5rem; 
+  width: 100%;
+}
+
+button {
+  margin-right: 0.2rem;
+  margin-bottom: 0.2rem;
+  padding: 0.4rem 0.4rem;
+  border: none;
+  border-radius: 4px;
+  background-color: #8ac4d0;
+  cursor: pointer;
+  color: #28527a;
+}
+
+button:hover {
+  background-color: #719fa8;
+}
+
+button.selected {
+  background-color: #f7c319;
+  color: white;
+}
 

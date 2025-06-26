@@ -7,6 +7,7 @@ import { IngredientsListComponent } from '../ingredients-list/ingredients-list.c
   selector: 'app-recipe-card',
   standalone: true, //ezis
   templateUrl: './recipe-card.component.html',
+  styleUrls: ['./recipe-card.component.css'],
   imports : [CommonModule, IngredientsListComponent] // ElementRef, collection->cf
 })
 export class RecipeCardComponent {

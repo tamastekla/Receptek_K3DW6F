@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 @Component({
   selector: 'app-new-recipe-form',
   templateUrl: './new-recipe-form.component.html',
+  styleUrls: ['./new-recipe-form.component.css'],
   imports : [FormsModule]
 })
 export class NewRecipeFormComponent {
@@ -16,7 +17,7 @@ export class NewRecipeFormComponent {
     if (!this.title || !this.ingredients || !this.steps) return;
     const recipe = {
       title: this.title,
-      ingredients: this.ingredients.split(',').map(i => i.trim()),
+      ingredients: this.ingredients.split(',').map(i => i.trim()).filter(i => i !== ''),
       steps: this.steps,
       favorite: false,
       id: 0

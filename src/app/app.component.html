@@ -1,37 +1,38 @@
-<main>
+<main class="layout">
+  <aside class="sidebar">
+    <app-collection-filter 
+      [collections]="collections" 
+      [selectedCollection]="selectedCollection"
+      (select)="setSelectedCollection($event)">
+    </app-collection-filter>
 
-   <app-collection-filter 
-    [collections]="collections" 
-    [selectedCollection]="selectedCollection"
-    (select)="setSelectedCollection($event)">
-  </app-collection-filter>
+    <app-collection
+      [collections]="collections"
+      (collectionCreated)="createCollection($event)">
+    </app-collection>
+    <app-favorites-filter [(showFavoritesOnly)]="showFavoritesOnly"></app-favorites-filter>
+  </aside>
 
-  <app-collection
-    [collections]="collections"
-    (collectionCreated)="createCollection($event)">
-  </app-collection>
-
-  <app-new-recipe-form 
-    *ngIf = "!selectedCollection"
-    (recipeAdded)="addRecipe($event)">
-  </app-new-recipe-form>
-
-
-  <div *ngFor="let recipe of recipes">
-    <div *ngIf="(!showFavoritesOnly || recipe.favorite) &&
-                (!selectedCollection || recipe.collections.includes(selectedCollection))">
-      <app-recipe-card
-        [recipe]="recipe"
-        [collections]="collections"
-        (toggleFavorite)="toggleFavorite(recipe.id)"
-        (delete)="deleteRecipe(recipe.id)"
-        (collectionToggled)="toggleCollection(recipe.id, $event)">
-      </app-recipe-card>
+  <section class="recipes">
+    <div *ngFor="let recipe of recipes">
+      <div *ngIf="(!showFavoritesOnly || recipe.favorite) &&
+                  (!selectedCollection || recipe.collections.includes(selectedCollection))">
+        <app-recipe-card
+          [recipe]="recipe"
+          [collections]="collections"
+          (toggleFavorite)="toggleFavorite(recipe.id)"
+          (delete)="deleteRecipe(recipe.id)"
+          (collectionToggled)="toggleCollection(recipe.id, $event)">
+        </app-recipe-card>
+      </div>
     </div>
-  </div>
+    
+  </section>
 
-  <app-favorites-filter 
-    [(showFavoritesOnly)]="showFavoritesOnly">
-  </app-favorites-filter>
+  <aside class="form-panel" *ngIf="!selectedCollection">
+    <app-new-recipe-form (recipeAdded)="addRecipe($event)"></app-new-recipe-form>
+  </aside>
 </main>
+
+
 
